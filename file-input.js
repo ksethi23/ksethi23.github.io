@@ -18,8 +18,11 @@ new Vue({
       const reader = new FileReader();
       reader.onload = (e) => {
         this.csvData = Papa.parse(e.target.result, { header: true, dynamicTyping: true });
+        // Store CSV data in sessionStorage
+        sessionStorage.setItem('csvData',JSON.stringify(this.csvData));
+        
         // Redirect to the CSV display screen
-        window.location.href = `display-csv.html?file=${encodeURIComponent(JSON.stringify(this.csvData))}`;
+        window.location.href = 'display-csv.html';
       };
       reader.readAsText(this.file);
     },
