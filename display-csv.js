@@ -5,10 +5,11 @@ new Vue({
     rows: [],
   },
   mounted() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const csvDataString = urlParams.get('file');
+    // Retrieve CSV data from sessionStorage
+    const storedData = sessionStorage.getItem('csvData');
 
-    if (!csvDataString) {
+    // Check if CSV data exists
+    if (!storedData) {
       alert('Invalid CSV data.');
       // Redirect to the file input screen
       window.location.href = 'index.html';
@@ -16,8 +17,8 @@ new Vue({
     }
 
     try {
-      // Parse the CSV data received from the file input screen
-      const csvData = JSON.parse(decodeURIComponent(csvDataString));
+      // Parse the CSV data retrieved from sessionStorage
+      const csvData = JSON.parse(storedData);
       this.columns = csvData.meta.fields;
       this.rows = csvData.data;
     } catch (error) {
@@ -28,4 +29,7 @@ new Vue({
     }
   }
 });
+
+
+
 
