@@ -11,7 +11,7 @@ new Vue({
     if (!csvDataString) {
       alert('Invalid CSV data.');
       // Redirect to the file input screen
-      window.location.href = 'file-input.html';
+      window.location.href = 'index.html';
       return;
     }
 
@@ -24,7 +24,7 @@ new Vue({
       alert('Error parsing CSV data.');
       console.error(error);
       // Redirect to the file input screen
-      window.location.href = 'file-input.html';
+      window.location.href = 'index.html';
     }
   }
 });
