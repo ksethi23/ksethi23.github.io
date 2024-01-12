@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSV Viewer - File Input</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="app" class="container">
+  <h1>CSV Viewer - File Input</h1>
+  <div class="mb-3">
+    <label for="fileInput" class="form-label">Select CSV File:</label>
+    <input type="file" id="fileInput" class="form-control" @change="handleFileChange">
+  </div>
+
+  <button class="btn btn-primary" @click="loadCSV">Load CSV</button>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<script src="https://unpkg.com/papaparse@5.3.0"></script>
+<script src="file-input.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSV Viewer - Display CSV</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="app" class="container">
+  <h1>CSV Viewer - Display CSV</h1>
+  <table v-if="columns.length > 0" class="table table-bordered mt-3">
+    <thead>
+      <tr>
+        <th v-for="col in columns" :key="col">
+          {{ col }}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="(row, index) in rows" :key="index">
+        <td v-for="col in columns" :key="col">{{ row[col] }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+<script src="https://unpkg.com/papaparse@5.3.0"></script>
+<script src="display-csv.js"></script>
+
+</body>
+</html>
+
